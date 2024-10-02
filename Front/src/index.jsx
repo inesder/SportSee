@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import Header from './components/Header';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+body {
+  margin : 0;
+  padding: 0;
+  min-width: 1024px;
+  min-height: 780px; 
+  font-family: "Roboto", sans-serif;
+}`
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <GlobalStyle />
+    <Header />
   </React.StrictMode>
 );
 
