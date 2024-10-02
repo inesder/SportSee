@@ -4,16 +4,16 @@ import Logo from '../../assets/logo.png'
 const HomeLogo = styled.img`
   height: 60px;
   width: 180px;
+  padding-left: 30px;
 `
 
 const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 60px;
   background-color: black;
   height: 90px;
-  padding: 0 80px 0 80px;
+  padding-right: 80px;
 `
 
 const NavLink = styled.a`

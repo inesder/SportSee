@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
+import SideBar from './components/Sidebar';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-body {
+html, body, #root{
+  height: 100%;
   margin : 0;
   padding: 0;
   min-width: 1024px;
@@ -17,6 +19,7 @@ root.render(
   <React.StrictMode>
     <GlobalStyle />
     <Header />
+    <SideBar />
   </React.StrictMode>
 );
 
