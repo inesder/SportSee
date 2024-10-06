@@ -4,7 +4,15 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 
 const WelcomeTitle = styled.h1`
+font-size: 48px;
+`
 
+const TitleName = styled.span`
+color: #FF0101;
+`
+
+const CongratsMessage = styled.p`
+font-size: 24px;
 `
 
 function ProfilePage() {
@@ -26,7 +34,11 @@ function ProfilePage() {
 
 
     return (
-        <WelcomeTitle>Bonjour, {user.userInfos.firstName} </WelcomeTitle>
+        <div>
+        <WelcomeTitle>Bonjour 
+            <TitleName> {user.userInfos.firstName}</TitleName> </WelcomeTitle>
+            <CongratsMessage>Félicitation ! Vous avez explosé vos objectifs hier 👏</CongratsMessage>
+        </div>  
     )
 }
 

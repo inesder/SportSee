@@ -5,6 +5,8 @@ import Header from './components/Header';
 import SideBar from './components/Sidebar';
 import ProfilePage from './pages/profilePage';
 import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components'
+
 
 const GlobalStyle = createGlobalStyle`
 html, body, #root{
@@ -16,16 +18,30 @@ html, body, #root{
   font-family: "Roboto", sans-serif;
 }`
 
+const AppContainer = styled.div`
+  display: flex;
+  height: 100%;
+`;
+
+const MainContent = styled.main`
+  padding: 100px; /* Ajouter du padding autour du contenu principal */
+  overflow-y: auto; /* Pour permettre le défilement si le contenu est trop grand */
+`;
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-    <GlobalStyle />
-    <Header />
-    <SideBar />
-    <Routes>
-      <Route path="/profile/:id" element={<ProfilePage />} />
-    </Routes>
+      <GlobalStyle />
+      <Header />
+      <AppContainer>
+        <SideBar />
+        <MainContent>
+          <Routes>
+            <Route path="/profile/:id" element={<ProfilePage />} />
+          </Routes>
+        </MainContent>
+      </AppContainer>
     </Router>
   </React.StrictMode>
 );
