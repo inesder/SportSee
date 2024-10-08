@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import DailyActivities from '../components/DailyActivities'
 import ActivityType from '../components/ActivityType'
+import SessionDuration from '../components/Sessions'
 
 const WelcomeTitle = styled.h1`
 font-size: 48px;
@@ -42,6 +43,7 @@ function ProfilePage() {
             <CongratsMessage>Félicitation ! Vous avez explosé vos objectifs hier 👏</CongratsMessage>
             <DailyActivities userActivity={user.userActivity} />
             <ActivityType userPerformance={user.userPerformance} />
+            <SessionDuration userAverageSessions={user.userAverageSessions} />
         </div>  
     )
 }
