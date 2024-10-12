@@ -44,7 +44,7 @@ const SessionDuration = ({userAverageSessions}) => {
             bottom: 5,
           }}
         >
-          <CartesianGrid stroke='none' />
+          <CartesianGrid stroke='none' /> 
           <XAxis dataKey="day" stroke="#FFFFFF" axisLine={false} tickLine={false}  tickFormatter={(tick) => days[tick - 1]} />
           <Tooltip content={<CustomTooltip />} cursor={false} />
           <Line type="monotone" dataKey="sessionLength" stroke="rgba(255, 255, 255, 0.7)" strokeWidth={2} dot={({ cx, cy, value }) => value === maxValue ? <circle cx={cx} cy={cy} r={8} fill="#FFFFFF" /> : null} />// Afficher un dot uniquement pour la valeur max

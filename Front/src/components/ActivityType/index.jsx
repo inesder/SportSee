@@ -19,6 +19,7 @@ background-color: #282D30;
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart cx="50%" cy="50%" outerRadius="80%" data={dataType} >
           <PolarGrid radialLines={false} />
+          
           <PolarAngleAxis dataKey="subject" stroke="#FFFFFF" tickLine={false} />
           <Radar name="Performance" dataKey="value"  fill="#FF0101" fillOpacity={0.6}  />
         </RadarChart>
