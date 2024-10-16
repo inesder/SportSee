@@ -14,7 +14,7 @@ html, body, #root{
   margin : 0;
   padding: 0;
   min-width: 1024px;
-  min-height: 600px; 
+  min-height: 780px; 
   font-family: "Roboto", sans-serif;
 }`
 
@@ -24,8 +24,8 @@ const AppContainer = styled.div`
 `;
 
 const MainContent = styled.main`
-  padding: 100px; /* Ajouter du padding autour du contenu principal */
-  overflow-y: auto; /* Pour permettre le défilement si le contenu est trop grand */
+  margin: 68px 110px 0 110px; 
+  width: 100%;
 `;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -2,23 +2,23 @@ import styled from 'styled-components';
 
 
 function CardInfos({icon, value, label}){
+
     const CardContainer = styled.div`
   display: flex;
   align-items: center;
-  background-color: #f5f5f5;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  margin: 10px;
+  background-color: #FBFBFB;
+  padding-left: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.0212);
   height: 125px;
+  width: 260px;
   display: flex;
-  gap: 100px;
+  gap: 50px;
 `;
 
-const IconContainer = styled.div`
-  width: 50px;
-  height: 50px;
-  margin-right: 20px;
+const Icon = styled.img`
+  width: 60px;
+  height: 60px;
 `;
 
 const InfoContainer = styled.div`
@@ -40,9 +40,7 @@ const Label = styled.span`
 
     return (
 <CardContainer>
-      <IconContainer>
-        <img src={icon} alt={`${label} icon`} />
-      </IconContainer>
+        <Icon src={icon} alt={`${label} icon`} />
       <InfoContainer>
         <Value>{value}</Value>
         <Label>{label}</Label>
