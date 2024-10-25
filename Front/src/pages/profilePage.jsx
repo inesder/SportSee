@@ -82,17 +82,17 @@ function ProfilePage() {
       getUserPerformance(id),
     ])
       .then(([userData, activityData, averageSessionsData, performanceData]) => {
-          // Transformation des données avec les modèles
-      const userMainData = new UserMainDataModel(userData);
-      const userActivityData = new UserActivityModel(activityData);
-      const userAverageSessionsData = new UserAverageSessionsModel(averageSessionsData);
-      const userPerformanceData = new UserPerformanceModel(performanceData);
+        // Transformation des données avec les modèles
+        const userMainData = new UserMainDataModel(userData);
+        const userActivityData = new UserActivityModel(activityData);
+        const userAverageSessionsData = new UserAverageSessionsModel(averageSessionsData);
+        const userPerformanceData = new UserPerformanceModel(performanceData);
 
-       // Mise à jour de l'état avec les données transformées
-      setUser(userMainData);
-      setUserActivity(userActivityData);
-      setUserAverageSessions(userAverageSessionsData);
-      setUserPerformance(userPerformanceData);
+        // Mise à jour de l'état avec les données transformées
+        setUser(userMainData);
+        setUserActivity(userActivityData);
+        setUserAverageSessions(userAverageSessionsData);
+        setUserPerformance(userPerformanceData);
       })
       .catch((error) => {
         console.error('Erreur lors de la récupération des données utilisateur :', error);

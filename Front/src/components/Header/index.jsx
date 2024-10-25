@@ -30,10 +30,10 @@ function Header() {
       <a href="#">
         <HomeLogo src={Logo} />
       </a>
-        <NavLink>Accueil</NavLink>
-        <NavLink>Profil</NavLink>
-        <NavLink>Réglage</NavLink>
-        <NavLink>Communauté</NavLink>
+      <NavLink>Accueil</NavLink>
+      <NavLink>Profil</NavLink>
+      <NavLink>Réglage</NavLink>
+      <NavLink>Communauté</NavLink>
     </NavContainer>
   )
 }

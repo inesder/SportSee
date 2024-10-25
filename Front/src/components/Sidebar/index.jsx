@@ -43,15 +43,15 @@ transform: rotate(180deg);
 function SideBar() {
   return (
     <SideBarContainer>
-    <NavContainer>
+      <NavContainer>
         <NavLink><Icon src={Lift} /></NavLink>
-        <NavLink><Icon src={Swimming}/></NavLink>
-        <NavLink><Icon src={Rest}/></NavLink>
-        <NavLink><Icon src={Bike}/></NavLink>   
-    </NavContainer>
-    <CopyRights>
-    Copyright, SportSee 2020
-    </CopyRights>
+        <NavLink><Icon src={Swimming} /></NavLink>
+        <NavLink><Icon src={Rest} /></NavLink>
+        <NavLink><Icon src={Bike} /></NavLink>
+      </NavContainer>
+      <CopyRights>
+        Copyright, SportSee 2020
+      </CopyRights>
     </SideBarContainer>
   )
 }

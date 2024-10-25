@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 
-function CardInfos({icon, value, label}){
+function CardInfos({ icon, value, label }) {
 
-    const CardContainer = styled.div`
+  const CardContainer = styled.div`
   display: flex;
   align-items: center;
   background-color: #FBFBFB;
@@ -16,37 +16,37 @@ function CardInfos({icon, value, label}){
   gap: 50px;
 `;
 
-const Icon = styled.img`
+  const Icon = styled.img`
   width: 60px;
   height: 60px;
 `;
 
-const InfoContainer = styled.div`
+  const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
 `;
 
-const Value = styled.span`
+  const Value = styled.span`
   font-size: 24px;
   font-weight: bold;
   color: #000;
 `;
 
-const Label = styled.span`
+  const Label = styled.span`
   font-size: 14px;
   color: #777;
 `;
 
-    return (
-<CardContainer>
-        <Icon src={icon} alt={`${label} icon`} />
+  return (
+    <CardContainer>
+      <Icon src={icon} alt={`${label} icon`} />
       <InfoContainer>
         <Value>{value}</Value>
         <Label>{label}</Label>
       </InfoContainer>
     </CardContainer>
-    )
+  )
 }
 
 export default CardInfos

@@ -45,23 +45,23 @@ const SessionDuration = ({ userAverageSessions }) => {
 
   const data = userAverageSessions.sessions;
 
-const handleMouseMove = (e) => {
-  if (e && e.activeLabel) {
-    setCursorX(e.chartX); // Capture la position X de la souris
-  }
-};
+  const handleMouseMove = (e) => {
+    if (e && e.activeLabel) {
+      setCursorX(e.chartX); // Capture la position X de la souris
+    }
+  };
 
-const handleMouseLeave = () => {
-  setCursorX(0); // Réinitialise le curseur quand la souris quitte le graphique
-};
+  const handleMouseLeave = () => {
+    setCursorX(0); // Réinitialise le curseur quand la souris quitte le graphique
+  };
 
 
   // Liste des initiales des jours
 
-    return (
-        <LineChartContainer>
-          <LineChartLabel>Durée moyenne des sessions</LineChartLabel>
-          <CursorOverlay x={cursorX} />
+  return (
+    <LineChartContainer>
+      <LineChartLabel>Durée moyenne des sessions</LineChartLabel>
+      <CursorOverlay x={cursorX} />
       <ResponsiveContainer width="100%" height="80%">
         <LineChart
           data={data}
@@ -77,19 +77,19 @@ const handleMouseLeave = () => {
           <defs>
             {/* Définition du gradient */}
             <linearGradient id="colorGradient" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="rgba(255, 255, 255, 0.2)" />
-              <stop offset="100%" stopColor="rgba(255, 255, 255, 1)" /> 
+              <stop offset="0%" stopColor="rgba(255, 255, 255, 0.2)" />
+              <stop offset="100%" stopColor="rgba(255, 255, 255, 1)" />
             </linearGradient>
           </defs>
-          <CartesianGrid stroke='none' /> 
-          <XAxis dataKey="day" stroke="#FFFFFF" opacity={0.4} axisLine={false} tickLine={false}   />
+          <CartesianGrid stroke='none' />
+          <XAxis dataKey="day" stroke="#FFFFFF" opacity={0.4} axisLine={false} tickLine={false} />
 
           <Tooltip content={<CustomTooltip />} cursor={false} />
-          <Line type="monotone" dataKey="sessionLength" stroke="url(#colorGradient)" strokeWidth={2} dot={false}/>
+          <Line type="monotone" dataKey="sessionLength" stroke="url(#colorGradient)" strokeWidth={2} dot={false} />
         </LineChart>
       </ResponsiveContainer>
-      </LineChartContainer>
-    );
-  }
+    </LineChartContainer>
+  );
+}
 
 export default SessionDuration

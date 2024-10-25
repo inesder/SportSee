@@ -46,90 +46,90 @@ margin:0;
 `
 
 const CustomBar = (props) => {
-    const { x, y, width, height, fill } = props;
-    const radius = 3; 
-  
-    return (
-      <rect
-        x={x}
-        y={y}
-        width={width}
-        height={height}
-        fill={fill}
-        rx={radius} // Définir le border-radius horizontal
-        ry={radius} // Définir le border-radius vertical
-      />
-    );
-  };
+  const { x, y, width, height, fill } = props;
+  const radius = 3;
 
-const DailyActivities = ({userActivity}) => {
-    const data = userActivity.sessions;
+  return (
+    <rect
+      x={x}
+      y={y}
+      width={width}
+      height={height}
+      fill={fill}
+      rx={radius} // Définir le border-radius horizontal
+      ry={radius} // Définir le border-radius vertical
+    />
+  );
+};
 
-return (
+const DailyActivities = ({ userActivity }) => {
+  const data = userActivity.sessions;
+
+  return (
     <BarChartContainer>
       <BarChartHeader>
         <BarChartLabel>Activité quotidienne</BarChartLabel>
         <BarChartLegend>
           <LegendContainer>
-          <DotLegend src={blackdot} alt="blackdot" />
-          <LegendText>Poids (kg)</LegendText>
+            <DotLegend src={blackdot} alt="blackdot" />
+            <LegendText>Poids (kg)</LegendText>
           </LegendContainer>
           <LegendContainer>
-          <DotLegend src={reddot} alt="blackdot" />
-          <LegendText>Calories brûlées (kCal)</LegendText>
+            <DotLegend src={reddot} alt="blackdot" />
+            <LegendText>Calories brûlées (kCal)</LegendText>
           </LegendContainer>
         </BarChartLegend>
       </BarChartHeader>
       <ResponsiveContainer width="100%" height="60%" >
         <BarChart
           data={data}
-          margin={{ top: 20, right:0, left: 30, bottom: 5 }}
+          margin={{ top: 20, right: 0, left: 30, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <XAxis 
-          dataKey="day"
-          tickLine={false}
-          stroke='#9B9EAC'
-          dy={15}
-           />
+          <XAxis
+            dataKey="day"
+            tickLine={false}
+            stroke='#9B9EAC'
+            dy={15}
+          />
           {/* Axe des ordonnées pour les poids (à droite) */}
-          <YAxis 
-            yAxisId="right" 
-            orientation="right" 
-            tickLine={false} 
-            axisLine={false} 
-            domain={['dataMin-3', 'dataMax+10']} 
+          <YAxis
+            yAxisId="right"
+            orientation="right"
+            tickLine={false}
+            axisLine={false}
+            domain={['dataMin-3', 'dataMax+10']}
             tickCount="3"
           />
 
           {/* Axe des ordonnées pour les calories (à gauche) */}
-          <YAxis 
-            yAxisId="left" 
-            orientation="left" 
-            tickLine={false} 
-            axisLine={false} 
+          <YAxis
+            yAxisId="left"
+            orientation="left"
+            tickLine={false}
+            axisLine={false}
             hide={true} // Cache l'axe des calories pour n'afficher que celui des poids
             domain={['dataMin-30', 'dataMax+10']}
           />
-           <Tooltip/>
+          <Tooltip />
           {/* Barres pour le poids (lié à l'axe des poids) */}
-          <Bar 
-            yAxisId="right" 
-            dataKey="kilogram" 
-            barSize={7} 
-            fill="#282D30" 
-            name="Poids (kg)" 
-            shape={<CustomBar />} 
+          <Bar
+            yAxisId="right"
+            dataKey="kilogram"
+            barSize={7}
+            fill="#282D30"
+            name="Poids (kg)"
+            shape={<CustomBar />}
           />
-          
+
           {/* Barres pour les calories (lié à l'axe des calories) */}
-          <Bar 
-            yAxisId="left" 
-            dataKey="calories" 
-            barSize={7} 
-            fill="#E60000" 
-            name="Calories brûlées" 
-            shape={<CustomBar />} 
+          <Bar
+            yAxisId="left"
+            dataKey="calories"
+            barSize={7}
+            fill="#E60000"
+            name="Calories brûlées"
+            shape={<CustomBar />}
           />
         </BarChart>
       </ResponsiveContainer>
