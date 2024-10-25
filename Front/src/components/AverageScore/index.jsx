@@ -1,25 +1,25 @@
 import { RadialBarChart, RadialBar, ResponsiveContainer, PolarAngleAxis } from 'recharts';
 import styled from 'styled-components';
 
+// Styled container for the radial chart
+const RadialChartContainer = styled.div`
+width: 260px;
+height: 260px;
+border-radius: 5px;
+background-color: #FBFBFB;
+`;
+
+// Styled label displayed at the top of the chart
+const RadialChartLabel = styled.p`
+margin: 0;
+padding: 24px 0 0 30px;
+font-size: 15px;
+font-weight: 500;
+`;
+
 function AverageScore({ score }) {
   // Prepare data for the RadialBarChart, converting score to a percentage
   const data = [{ score: score * 100 }];
-
-  // Styled container for the radial chart
-  const RadialChartContainer = styled.div`
-    width: 260px;
-    height: 260px;
-    border-radius: 5px;
-    background-color: #FBFBFB;
-  `;
-
-  // Styled label displayed at the top of the chart
-  const RadialChartLabel = styled.p`
-    margin: 0;
-    padding: 24px 0 0 30px;
-    font-size: 15px;
-    font-weight: 500;
-  `;
 
   return (
     <RadialChartContainer>
