@@ -16,6 +16,11 @@ import {
   getUserAverageSessions,
   getUserPerformance,
 } from '../services/apiService';
+import UserActivityModel from '../models/UserActivityModel';
+import UserAverageSessionsModel from '../models/UserAverageSessionsModel.js';
+import UserPerformanceModel from '../models/UserPerformanceModel';
+import UserMainDataModel from '../models/UserMainDataModel';
+
 
 const WelcomeTitle = styled.h1`
   font-size: 48px;
@@ -77,10 +82,17 @@ function ProfilePage() {
       getUserPerformance(id),
     ])
       .then(([userData, activityData, averageSessionsData, performanceData]) => {
-        setUser(userData);
-        setUserActivity(activityData);
-        setUserAverageSessions(averageSessionsData);
-        setUserPerformance(performanceData);
+          // Transformation des données avec les modèles
+      const userMainData = new UserMainDataModel(userData);
+      const userActivityData = new UserActivityModel(activityData);
+      const userAverageSessionsData = new UserAverageSessionsModel(averageSessionsData);
+      const userPerformanceData = new UserPerformanceModel(performanceData);
+
+       // Mise à jour de l'état avec les données transformées
+      setUser(userMainData);
+      setUserActivity(userActivityData);
+      setUserAverageSessions(userAverageSessionsData);
+      setUserPerformance(userPerformanceData);
       })
       .catch((error) => {
         console.error('Erreur lors de la récupération des données utilisateur :', error);
@@ -113,7 +125,7 @@ function ProfilePage() {
         <GraphsContainer>
           <SessionDuration userAverageSessions={userAverageSessions} />
           <ActivityType userPerformance={userPerformance} />
-          <AverageScore scoreData={user.todayScore || user.score} />
+          <AverageScore score={user.todayScore} />
         </GraphsContainer>
         <CardsContainer>
           <Card

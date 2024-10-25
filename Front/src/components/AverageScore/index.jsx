@@ -1,8 +1,8 @@
 import { RadialBarChart, RadialBar, ResponsiveContainer, PolarAngleAxis } from 'recharts';
 import styled from 'styled-components';
 
-function AverageScore({scoreData}){
-    const score = [{score: scoreData * 100}]
+function AverageScore({score}){
+    const data = [{score: score * 100}]
 
     const RadialChartContainer = styled.div`
     width: 260px;
@@ -23,7 +23,7 @@ function AverageScore({scoreData}){
         <RadialChartContainer>
           <RadialChartLabel>Score</RadialChartLabel>
         <ResponsiveContainer width="100%" height="100%">
-          <RadialBarChart cx="50%" cy="40%" innerRadius="70%" outerRadius='100%' barSize={10} startAngle={90} endAngle={450} data={score} > 
+          <RadialBarChart cx="50%" cy="40%" innerRadius="70%" outerRadius='100%' barSize={10} startAngle={90} endAngle={450} data={data} > 
           <PolarAngleAxis
             type="number"
             domain={[0, 100]} 

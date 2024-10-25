@@ -43,11 +43,7 @@ const CustomTooltip = ({ active, payload }) => {
 const SessionDuration = ({ userAverageSessions }) => {
   const [cursorX, setCursorX] = useState(0);
 
-  const data = userAverageSessions.sessions.map((session) => ({
-    day: session.day,
-    sessionLength: session.sessionLength,
-  }));
-
+  const data = userAverageSessions.sessions;
 
 const handleMouseMove = (e) => {
   if (e && e.activeLabel) {
@@ -61,7 +57,6 @@ const handleMouseLeave = () => {
 
 
   // Liste des initiales des jours
-  const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
     return (
         <LineChartContainer>
@@ -87,7 +82,7 @@ const handleMouseLeave = () => {
             </linearGradient>
           </defs>
           <CartesianGrid stroke='none' /> 
-          <XAxis dataKey="day" stroke="#FFFFFF" opacity={0.4} axisLine={false} tickLine={false}  tickFormatter={(tick) => days[tick - 1]} dy={10} />
+          <XAxis dataKey="day" stroke="#FFFFFF" opacity={0.4} axisLine={false} tickLine={false}   />
 
           <Tooltip content={<CustomTooltip />} cursor={false} />
           <Line type="monotone" dataKey="sessionLength" stroke="url(#colorGradient)" strokeWidth={2} dot={false}/>

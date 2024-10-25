@@ -3,6 +3,48 @@ import styled from 'styled-components';
 import blackdot from '../../assets/blackdot.png';
 import reddot from '../../assets/reddot.png';
 
+const BarChartContainer = styled.div`
+width: 100%;
+height:320px;
+background-color: #FBFBFB;
+border-radius: 5px;
+`
+const BarChartHeader = styled.div`
+display: flex;
+justify-content: space-between;
+padding: 25px 30px 65px 25px;
+
+`
+const BarChartLabel = styled.p`
+font-size: 15px;
+font-weight: 500;
+margin:0;
+`
+const BarChartLegend = styled.div`
+display: flex;
+color: #74798C;
+font-weight: 500;
+font-size: 14px;
+gap: 30px;
+
+`
+
+const LegendContainer = styled.div`
+display: flex;
+gap: 10px;
+align-items: center;
+
+`
+
+const DotLegend = styled.img`
+width: 8px;
+height: 8px;
+`
+
+const LegendText = styled.p`
+margin:0;
+`
+
 const CustomBar = (props) => {
     const { x, y, width, height, fill } = props;
     const radius = 3; 
@@ -21,53 +63,7 @@ const CustomBar = (props) => {
   };
 
 const DailyActivities = ({userActivity}) => {
-    const data = userActivity.sessions.map((session, index) => ({
-        day: index + 1,
-        kilogram: session.kilogram,
-        calories: session.calories
-    }))
-
-    const BarChartContainer = styled.div`
-    width: 100%;
-    height:320px;
-    background-color: #FBFBFB;
-    border-radius: 5px;
-    `
-    const BarChartHeader = styled.div`
-    display: flex;
-    justify-content: space-between;
-    padding: 25px 30px 65px 25px;
-  
-    `
-    const BarChartLabel = styled.p`
-    font-size: 15px;
-    font-weight: 500;
-    margin:0;
-    `
-    const BarChartLegend = styled.div`
-    display: flex;
-    color: #74798C;
-    font-weight: 500;
-    font-size: 14px;
-    gap: 30px;
-    
-    `
-
-    const LegendContainer = styled.div`
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    
-    `
-
-    const DotLegend = styled.img`
-    width: 8px;
-    height: 8px;
-    `
-
-    const LegendText = styled.p`
-    margin:0;
-`
+    const data = userActivity.sessions;
 
 return (
     <BarChartContainer>
