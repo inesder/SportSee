@@ -1,9 +1,12 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import styled from 'styled-components';
 
+
+// ActivityType component displays a radar chart showing user's performance by activity type
 const ActivityType = ({ userPerformance }) => {
   const data = userPerformance.data;
 
+  // Container styling for the radar chart
   const RadarChartContainer = styled.div`
 width: 260px;
 height: 260px;

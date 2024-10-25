@@ -21,7 +21,7 @@ import UserAverageSessionsModel from '../models/UserAverageSessionsModel.js';
 import UserPerformanceModel from '../models/UserPerformanceModel';
 import UserMainDataModel from '../models/UserMainDataModel';
 
-
+// Styled components for various parts of the profile page
 const WelcomeTitle = styled.h1`
   font-size: 48px;
   margin: 0;
@@ -65,15 +65,17 @@ const CardsContainer = styled.div`
 `;
 
 function ProfilePage() {
-  const { id } = useParams();
+  const { id } = useParams(); // Get user ID from route parameters
   const navigate = useNavigate();
 
+  // State variables to store user data and errors
   const [user, setUser] = useState(null);
   const [userActivity, setUserActivity] = useState(null);
   const [userAverageSessions, setUserAverageSessions] = useState(null);
   const [userPerformance, setUserPerformance] = useState(null);
   const [error, setError] = useState(null);
 
+  // Fetches and transforms user data on component mount or when ID changes
   useEffect(() => {
     Promise.all([
       getUser(id),
@@ -82,36 +84,37 @@ function ProfilePage() {
       getUserPerformance(id),
     ])
       .then(([userData, activityData, averageSessionsData, performanceData]) => {
-        // Transformation des données avec les modèles
+        // Transform raw data into structured models
         const userMainData = new UserMainDataModel(userData);
         const userActivityData = new UserActivityModel(activityData);
         const userAverageSessionsData = new UserAverageSessionsModel(averageSessionsData);
         const userPerformanceData = new UserPerformanceModel(performanceData);
 
-        // Mise à jour de l'état avec les données transformées
+        // Update state with structured data
         setUser(userMainData);
         setUserActivity(userActivityData);
         setUserAverageSessions(userAverageSessionsData);
         setUserPerformance(userPerformanceData);
       })
       .catch((error) => {
-        console.error('Erreur lors de la récupération des données utilisateur :', error);
+        console.error('Error fetching user data:', error);
         setError(error);
       });
   }, [id]);
 
   if (error) {
-    navigate('/');
+    navigate('/'); // Redirect to homepage on error
     return null;
   }
 
   if (!user || !userActivity || !userAverageSessions || !userPerformance) {
-    // Attendez que toutes les données soient chargées
+    // Wait until all data is loaded
     return null;
   }
 
   return (
     <div>
+      {/* Welcome message displaying user's first name */}
       <WelcomeTitle>
         Bonjour <TitleName>{user.userInfos.firstName}</TitleName>
       </WelcomeTitle>
@@ -119,14 +122,19 @@ function ProfilePage() {
         Félicitations ! Vous avez explosé vos objectifs hier 👏
       </CongratsMessage>
       <DashboardContainer>
+        {/* Daily activities chart */}
         <BarChartContainer>
           <DailyActivities userActivity={userActivity} />
         </BarChartContainer>
+
+        {/* Additional graphs for user session data */}
         <GraphsContainer>
           <SessionDuration userAverageSessions={userAverageSessions} />
           <ActivityType userPerformance={userPerformance} />
           <AverageScore score={user.todayScore} />
         </GraphsContainer>
+
+        {/* Health data cards for calories, protein, carbs, and fat */}
         <CardsContainer>
           <Card
             icon={CaloriesIcon}
