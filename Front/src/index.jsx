@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
 const AppContainer = styled.div`
   display: flex;
   height: 100%;
+  overflow: hidden;
 `;
 
 // Container for main content area, including margin for sidebar and header
