@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import SideBar from './components/Sidebar';
+import HomePage from './pages/HomePage';
 import ProfilePage from './pages/profilePage';
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
@@ -42,6 +43,7 @@ root.render(
         <SideBar /> {/* Sidebar navigation */}
         <MainContent>
           <Routes>
+            <Route path="/"  element={<HomePage />} />
             {/* Profile page route with dynamic user ID */}
             <Route path="/profile/:id" element={<ProfilePage />} />
           </Routes>

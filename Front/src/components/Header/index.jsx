@@ -30,7 +30,7 @@ function Header() {
   return (
     <NavContainer>
       {/* Logo linking to the homepage */}
-      <a href="#">
+      <a href="/">
         <HomeLogo src={Logo} />
       </a>
       {/* Navigation links */}
