@@ -35,7 +35,7 @@ const MainContent = styled.main`
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router basename="/SportSee">
+    <Router basename="/">
       <GlobalStyle /> {/* Global styles applied */}
       <Header /> {/* Top navigation bar */}
       <AppContainer>
